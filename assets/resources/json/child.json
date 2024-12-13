@@ -1,0 +1,40 @@
+{
+    "data":[
+        {
+            "id":0,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 2,
+            "papper":1,
+            "ribbon":2,
+            "pattern":3,
+            "description":[
+                "圣诞老人，最近我想要的周边谷子怎么都买不到，总是断货！！！请给我最喜欢的角色的周边吧！！！",
+                "Alan is a tech whiz at just 10 years old, always brimming with curiosity about video games and the latest tech gadgets. He dreams of becoming a game developer one day, crafting exciting game worlds."
+            ]
+        },
+        {
+            "id":1,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 0,
+            "papper":2,
+            "ribbon":0,
+            "pattern":2,
+            "description":[
+                "圣诞老人，我没什么想要的礼物，就像过个平静的圣诞节，礼物您就看着送吧。",
+                "Alan is a tech whiz at just 10 years old, always brimming with curiosity about video games and the latest tech gadgets. He dreams of becoming a game developer one day, crafting exciting game worlds."
+            ]
+        },
+        {
+            "id":2,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 1,
+            "papper":1,
+            "ribbon":1,
+            "pattern":3,
+            "description":[
+                "圣诞老人，没有最新的游戏机玩我就要死了！！！我要游戏机！我要游戏机！我要游戏机！",
+                "Alan is a tech whiz at just 10 years old, always brimming with curiosity about video games and the latest tech gadgets. He dreams of becoming a game developer one day, crafting exciting game worlds."
+            ]
+        }
+    ]
+}

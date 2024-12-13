@@ -1,0 +1,26 @@
+{
+    "papper":[
+        {"value":0, "label":"红","url":"imgs/UI/childMenu/btns/papper-red"},
+        {"value":1, "label":"蓝","url":"imgs/UI/childMenu/btns/papper-blue"},
+        {"value":2, "label":"绿","url":"imgs/UI/childMenu/btns/papper-green"}
+    ],
+    "ribbon":[
+        {"value":0, "label":"白","url":"imgs/UI/childMenu/btns/ribbon-white"},
+        {"value":1, "label":"黄","url":"imgs/UI/childMenu/btns/ribbon-yellow"},
+        {"value":2, "label":"粉","url":"imgs/UI/childMenu/btns/ribbon-pink"}
+    ],
+    "pattern":[
+        {"value":0, "label":"纯色","url":"imgs/UI/childMenu/btns/pattern-pure"},
+        {"value":1, "label":"横纹","url":"imgs/UI/childMenu/btns/pattern-row"},
+        {"value":2, "label":"竖纹","url":"imgs/UI/childMenu/btns/pattern-col"},
+        {"value":3, "label":"棋盘格","url":"imgs/UI/childMenu/btns/pattern-checkborder"}
+    ],
+    "gift":[
+        {"value":0, "name":"TeddyBear"},
+        {"value":1, "name":"GameBoy"},
+        {"value":2, "name":"Sockes"},
+        {"value":3, "name":"Medicine"},
+        {"value":4, "name":"CatEars"},
+        {"value":5, "name":"MysteryBox"}
+    ]
+}

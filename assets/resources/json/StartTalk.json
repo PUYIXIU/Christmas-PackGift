@@ -1,0 +1,82 @@
+{
+    "chara":[
+        {"id":0, "name":[
+            "圣诞老人 :",
+            "Santa :"
+        ],"color":[180,82,82]},
+        {"id":1, "name":[
+            "小精灵 :",
+            "Elfin :"
+        ],"color":[138,176,96]},
+        {"id":2, "name":[
+            "作者 :",
+            "Elfin :"
+        ],"color":[75,128,202]}
+    ],
+    "data":[
+        {
+            "talker":0,
+            "content":[
+                "今天12月13日嗷",
+                "Hello, little elf"
+            ]
+        },
+        {
+            
+            "talker":1,
+            "content":[
+                "距离圣诞节还有2周",
+                "Hello, Mr Santa"
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "不知道作者今天又捣鼓出啥了",
+                "Hello, little elf"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "挑小孩的菜单做出来了",
+                "Hello, little elf"
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "还可以嘛~~~",
+                "Hello, little elf"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "还有一些简单的UI按钮",
+                "Hello, little elf"
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "感觉有点不美观呢",
+                "Hello, little elf"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "这只是第一版而已吧？",
+                "Hello, little elf"
+            ]
+        },
+        {
+            "talker":2,
+            "content":[
+                "什么！还有下一版？？？",
+                "Hello, little elf"
+            ]
+        }
+    ]
+}

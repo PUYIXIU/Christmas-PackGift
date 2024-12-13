@@ -1,0 +1,62 @@
+{
+    "chara":[
+        {"id":0, "name":[
+            "圣诞老人 :",
+            "Santa :"
+        ],"color":[180,82,82]},
+        {"id":1, "name":[
+            "小精灵 :",
+            "Elfin :"
+        ],"color":[138,176,96]}
+    ],
+    "data":[
+        {
+            
+            "talker":1,
+            "content":[
+                "王道礼物，泰迪熊",
+                "Hello, Mr Santa"
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "没有孩子可以拒绝这个",
+                "Hello, little elf"
+            ]
+        },        
+        {
+            
+            "talker":1,
+            "content":[
+                "哇哦",
+                "Hello, Mr Santa"
+            ]
+        },       
+        {
+            
+            "talker":1,
+            "content":[
+                "你说这话的时候...",
+                "Hello, Mr Santa"
+            ]
+        },    
+        {
+            
+            "talker":1,
+            "content":[
+                "看上去就像个七旬老头子",
+                "Hello, Mr Santa"
+            ]
+        },    
+        {
+            
+            "talker":0,
+            "content":[
+                "因为我就是个老头子！",
+                "Hello, Mr Santa"
+            ]
+        }
+
+    ]
+}

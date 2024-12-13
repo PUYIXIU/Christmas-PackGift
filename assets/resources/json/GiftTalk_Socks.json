@@ -1,0 +1,53 @@
+{
+    "chara":[
+        {"id":0, "name":[
+            "圣诞老人 :",
+            "Santa :"
+        ],"color":[180,82,82]},
+        {"id":1, "name":[
+            "小精灵 :",
+            "Elfin :"
+        ],"color":[138,176,96]}
+    ],
+    "data":[
+        {
+            
+            "talker":1,
+            "content":[
+                "天哪，送袜子？",
+                "Hello, Mr Santa"
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "连我自己都觉得寒酸",
+                "Hello, little elf"
+            ]
+        },        
+        {
+            
+            "talker":1,
+            "content":[
+                "等等，这不是......",
+                "Hello, Mr Santa"
+            ]
+        },    
+        {
+            
+            "talker":1,
+            "content":[
+                "人气角色【樱落雪】的周边袜子嘛！！",
+                "Hello, Mr Santa"
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "Huh？",
+                "Hello, little elf"
+            ]
+        }
+
+    ]
+}
