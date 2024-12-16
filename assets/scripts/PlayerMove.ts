@@ -45,8 +45,15 @@ export default class PlayerMove extends cc.Component {
 
   onLoad() {
     this.rbBody = this.node.getComponent(cc.RigidBody);
-
+    this.pressKeys = []
   }
+
+  // 如果不销毁绑定的事件，切换场景调用的是被销毁节点上的脚本
+  onDestroy(): void {
+    cc.systemEvent.removeAll(cc.SystemEvent.EventType.KEY_DOWN)
+    cc.systemEvent.removeAll(cc.SystemEvent.EventType.KEY_UP)
+  }
+  
 
   start() {
     this.bg = this.node.getChildByName('bg')

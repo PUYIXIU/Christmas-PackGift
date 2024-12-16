@@ -15,12 +15,21 @@ export default class Game extends cc.Component {
     // 调试配置
     debug = {
         // 对话调试
-        talkDebug:true
+        talkDebug:false
     }
+
+    // 重新开始菜单
+    @property(cc.Node)
+    restartMenu: cc.Node = null
 
     // 样式菜单
     @property(cc.Node)
     styleMenu: cc.Node = null
+
+    // 设置菜单
+    @property(cc.Node)
+    settingMenu: cc.Node = null
+
 
     // 显示孩子信息的菜单
     @property(cc.Node)
@@ -70,6 +79,7 @@ export default class Game extends cc.Component {
     isPause: boolean = false
 
     onLoad(){
+        console.log('reload')
         this.canvas = cc.view.getCanvasSize()
         window.game = this
         // 开启物理引擎
@@ -91,6 +101,9 @@ export default class Game extends cc.Component {
         cc.director.getCollisionManager().enabled = true;
         cc.director.getCollisionManager().enabledDebugDraw = true
         cc.director.getCollisionManager().enabledDrawBoundingBox = true
+
+
+        // this.closeRestartMenu()
     }
     Pause(){
         this.isPause = true
@@ -150,6 +163,26 @@ export default class Game extends cc.Component {
         this.closeMenu(this.childMenu)
     }
 
+    // 开启重新开始游戏菜单
+    openRestartMenu(){
+        this.openMenu(this.restartMenu)
+    }
+
+    // 关闭重新开始游戏菜单
+    closeRestartMenu(){
+        this.closeMenu(this.restartMenu)
+    }
+
+    // 开启设置菜单
+    openSettingMenu(){
+        this.openMenu(this.settingMenu)
+    }
+
+    // 关闭设置菜单
+    closeSettingMenu(){
+        this.closeMenu(this.settingMenu)
+    }
+
     update(dt){
         if(!this.isPause){
             this.setChildNumLabel()
@@ -175,5 +208,10 @@ export default class Game extends cc.Component {
         this.timeLabel.getComponent(cc.Label).string = string
     }
 
+    // 重新开始游戏
+    restartGame(){
+        cc.director.loadScene('level1',()=>{
+            console.log('加载成功')
+        })
     }
 }

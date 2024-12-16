@@ -135,6 +135,7 @@ export default class PlayerInteract extends cc.Component {
 
                 // 左侧UI向左移动
                 let leftMenuAction = cc.spawn(
+                    // cc.moveBy(menuDur, -this.menuNavs.left.width, 0),
                     cc.moveBy(menuDur, -this.menuNavs.left.width, 0),
                     cc.fadeTo(menuDur, 0),
                 )
@@ -220,7 +221,6 @@ export default class PlayerInteract extends cc.Component {
             this.tNameLabelCp.string = ''
             this.tCLabelCp.string = ''
             this.targetContent = ''
-            this.curScript = null
         })
     }
 
@@ -350,7 +350,27 @@ export default class PlayerInteract extends cc.Component {
 
     // 加载下一句话
     loadNextWord(event:cc.Event.EventKeyboard){
+        const talkEnd = ()=>{
+            /**
+             * 判断对话已结束就修改curScript为空，
+             * 因为需要使用curScript作为对话结束判断，
+             * 防止因为按空格/X键过快出现淡出抖动的问题
+             */
+            this.curScript = null
+            cc.systemEvent.off(
+                cc.SystemEvent.EventType.KEY_UP,
+                this.loadNextWord
+            )
+            this.stopTalk()
+        }
         if(!this.curScript) return // 为了解决键盘无法解绑的问题，简单粗暴的解决方式
+
+        // 输入的是空格，跳过对话
+        if(event && event.keyCode == cc.macro.KEY.space){
+            talkEnd()
+            return 
+        }
+
         if(event && event.keyCode !== cc.macro.KEY.e) return
         // 打字还没有打完
         if(this.tCLabelCp.string.length !== this.targetContent.length) return
@@ -358,12 +378,9 @@ export default class PlayerInteract extends cc.Component {
         this.targetContent = ''
 
         if(this.curTalkIndex >= this.curScript.data.length) {
+            this.curScript = null
             // 对话已经结束，事件无法真正解绑，此处有问题
-            cc.systemEvent.off(
-                cc.SystemEvent.EventType.KEY_UP,
-                this.loadNextWord
-            )
-            this.stopTalk()
+            talkEnd()
             return
         }
         let wordData = this.curScript.data[this.curTalkIndex]
