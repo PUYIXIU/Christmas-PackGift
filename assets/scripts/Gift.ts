@@ -18,7 +18,6 @@ export default class Gift extends cc.Component {
     // 对话脚本
     @property(cc.JsonAsset)
     script:cc.JsonAsset = null
-    start () {
-    }
+    start () {}
 
 }

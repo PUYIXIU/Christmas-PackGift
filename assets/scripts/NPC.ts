@@ -24,6 +24,7 @@ export default class NPC extends cc.Component {
     start () {
     }
     update(){
+        // NPC朝向要跟随玩家
         this.setDir()
     }
     setDir(){
@@ -35,7 +36,6 @@ export default class NPC extends cc.Component {
         }
         this.bgNode.scaleX = 1 * this.dir
     }
-    // update (dt) {}
     // 开始碰撞
     onBeginContact(contact, self, other){
         toggleTipLabel(true, other, this.tipLabel)

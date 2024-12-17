@@ -48,7 +48,9 @@ export default class ChildMenu extends cc.Component {
         this.ribbon = this.node.getChildByName('ribbon')
         this.pattern = this.node.getChildByName('pattern')
         this.doneFrame = this.node.getChildByName('DoneFrame')
-        this.descFrame = this.node.getChildByName('ChildDesc')
+        // this.descFrame = this.node.getChildByName('ChildDesc')
+        // 描述文字
+        this.descFrame = cc.find('Canvas/UI/ChildMenu/childMenuFrame/ChildDesc/view/content/item')
         this.pageLabel = this.node.getChildByName('PageLabel')
 
         this.prePageBtn = this.node.getChildByName('LeftBtn')

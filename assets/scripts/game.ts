@@ -64,7 +64,7 @@ export default class Game extends cc.Component {
 
     // 语言选择
     // 0=中文 1=英文
-    lang = 0
+    lang = 1
 
     canvas = null
     
@@ -79,7 +79,6 @@ export default class Game extends cc.Component {
     isPause: boolean = false
 
     onLoad(){
-        console.log('reload')
         this.canvas = cc.view.getCanvasSize()
         window.game = this
         // 开启物理引擎
@@ -88,8 +87,6 @@ export default class Game extends cc.Component {
         cc.director.getCollisionManager().enabled = true;
         cc.director.getCollisionManager().enabledDebugDraw = true
         cc.director.getCollisionManager().enabledDrawBoundingBox = true
-
-        
         // 每个孩子都初始化为未完成状态
         this.childList.json.data.forEach(child=>{
             child.done = false
@@ -101,24 +98,18 @@ export default class Game extends cc.Component {
         cc.director.getCollisionManager().enabled = true;
         cc.director.getCollisionManager().enabledDebugDraw = true
         cc.director.getCollisionManager().enabledDrawBoundingBox = true
-
-
-        // this.closeRestartMenu()
     }
+    // 游戏暂停
     Pause(){
         this.isPause = true
     }
-
+    // 游戏继续
     Continue(){
         this.isPause = false
-        
-
     }
 
     // 游戏开始
-    gameStart(){
-        
-    }
+    gameStart(){}
 
     // 打开新的菜单
     openMenu(newMenu:cc.Node){
@@ -190,14 +181,16 @@ export default class Game extends cc.Component {
         }
     }
 
+    // 已完成的孩子
     setChildNumLabel(){
         let childList = this.childList.json.data
         let total = childList.length
+        // done标记已经完成的孩子
         let doneCount = childList.filter(item=>item.done).length
-
         this.doneChildLabel.getComponent(cc.Label).string = `${doneCount} / ${total}`
     }
 
+    // 倒计时时间
     setTimeCounter(dt){
         this.timeCounter += dt;
         let value = Math.round(this.timeCounter)

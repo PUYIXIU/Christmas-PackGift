@@ -1,0 +1,17 @@
+使用W/A/D或者↑/←/→进行移动
+Use W/A/D or ↑/←/→ to move
+
+举起/放下物体：E键
+Lift/drop items: E key
+
+与物体交互：X键
+Interacting with items: X key
+
+跳过对话：空格键
+Skip text: Space bar
+
+返回菜单
+Back
+
+规则说明
+About Rules
