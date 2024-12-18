@@ -41,6 +41,7 @@ export default class ChildMenu extends cc.Component {
         notDone:undefined
     }
     onLoad(){
+        console.log('孩子菜单被load')
         this.childList = window.game.childList
         this.globalDict = window.game.globalDict
 
@@ -57,7 +58,6 @@ export default class ChildMenu extends cc.Component {
         this.nextPageBtn = this.node.getChildByName('RightBtn')
         
 
-
         cc.resources.load([
             'imgs/UI/childMenu/btns/DoneFrame',
             'imgs/UI/childMenu/btns/notDoneFrame',
@@ -73,6 +73,11 @@ export default class ChildMenu extends cc.Component {
     }
 
     start () {
+        //孩子数量比1小
+        if(this.childList.json.data.length <= 1){
+            this.prePageBtn.getComponent(cc.Button).interactable = false
+            this.nextPageBtn.getComponent(cc.Button).interactable = false
+        }
     }
 
     // 加载孩子
@@ -87,7 +92,7 @@ export default class ChildMenu extends cc.Component {
         
 
         // 修改描述
-        this.descFrame.getComponent(cc.Label).string = child.description[window.game.lang]
+        this.descFrame.getComponent(cc.Label).string = child.description[window.globalData.lang]
         
         cc.resources.load([
             papper.url, ribbon.url, pattern.url, child.avator

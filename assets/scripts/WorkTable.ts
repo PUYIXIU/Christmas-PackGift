@@ -63,6 +63,7 @@ export default class WorkTable extends cc.Component {
     y:0,
   }
 
+  // 礼物加载的预制件数组
   giftBoxPrefab = []
 
   start() {
@@ -116,7 +117,6 @@ export default class WorkTable extends cc.Component {
         let matCol = material.getComponent(cc.PhysicsPolygonCollider)
         matCol.enabled = false
         matRb.enabled = false
-
       }
       if(this.mat.count>=3){
         break;

@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Deer",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6833333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "bfbe2eb3-eba4-41fc-8145-0d43b715f313"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "96c0a9ac-ad18-4240-9bf4-03a19aaf2446"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "37cc5a95-b5f6-441f-b5b3-b483e7ff7cbf"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "29d33cac-f76f-4875-bb7a-9625e4537071"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "bfbe2eb3-eba4-41fc-8145-0d43b715f313"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

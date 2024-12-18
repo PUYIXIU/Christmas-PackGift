@@ -1,0 +1,33 @@
+{
+    "chara":[
+        {"id":0, "name":[
+            "圣诞老人 :",
+            "Santa :"
+        ],"color":[180,82,82]},
+        {"id":1, "name":[
+            "小精灵 :",
+            "Elfin :"
+        ],"color":[138,176,96]},
+        {"id":2, "name":[
+            "作者 :",
+            "Elfin :"
+        ],"color":[75,128,202]}
+    ],
+    "data":[
+        {
+            "talker":0,
+            "content":[
+                "游戏结束对话测试",
+                "Hello, little elf"
+            ]
+        },
+        {
+            
+            "talker":1,
+            "content":[
+                "游戏结束对话测试",
+                "Hello, Mr Santa"
+            ]
+        }
+    ]
+}

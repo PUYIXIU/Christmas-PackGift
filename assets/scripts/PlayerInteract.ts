@@ -385,12 +385,11 @@ export default class PlayerInteract extends cc.Component {
         }
         let wordData = this.curScript.data[this.curTalkIndex]
         let talker = this.curScript.chara.find(item=>item.id == wordData.talker)
-        this.tNameLabelCp.string = talker.name[window.game.lang]
+        this.tNameLabelCp.string = talker.name[window.globalData.lang]
         this.talkerNameLabel.color = new cc.Color(...talker.color)
 
         // 此处插入一个打字特效
-        // this.tCLabelCp.string = wordData.content[window.game.lang]
-        this.targetContent = wordData.content[window.game.lang]
+        this.targetContent = wordData.content[window.globalData.lang]
         this.tCLabelCp.string = ''
         this.simTyping()
 

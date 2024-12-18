@@ -1,0 +1,76 @@
+{
+    "data":[
+        {
+            "id":0,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 1,
+            "papper":1,
+            "ribbon":2,
+            "pattern":3,
+            "description":[
+                "比利，11岁。\n电子游戏狂热爱好者；\n网络冲浪十级选手；\n尽管小比利在电子游戏上表现出极高的热情，\n但他的父母却不舍得花那点小钱（据他自己所说），购置一台最新的游戏机，\n他对这种【专断】的教育感到失望透顶，通过将自己锁在房间中来进行反抗，\n“我明白以他们的认知水平，当然会采取这种愚蠢的行动。”\n比利在屋里对着电脑愤怒的敲击着键盘：\n“他们完全没有注意到我真正的才能，还以为我是会被圣诞老人糊弄的11岁小屁孩！”",
+                "Billy Jackson, 11 years old.\nAn avid gamer;\nA master-level internet surfer;\nDespite Billy's immense passion for video games,\nhis parents are unwilling to spend a little money (according to him) to buy the latest game console.\nHe's extremely disappointed with this \"arbitrary\" parenting and protests by locking himself in his room.\n\"I understand that at their level of understanding, they would of course take such foolish actions.\"\nBilly is furiously typing on his keyboard inside the room:\n\"They completely overlook my real talents and think I'm just an 11-year-old kid who can be fooled by Santa Claus!\""
+            ]
+        },
+        {
+            "id":1,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 4,
+            "papper":2,
+            "ribbon":0,
+            "pattern":2,
+            "description":[
+                "阿什莉，10岁。\ncosplay中毒少女\n最崇拜Tiktok上的百万粉丝网红Coser Nemico\n为了成为和Nemico一样厉害的coser研修中，\n最近迷上了猫娘口癖：\n“人家本来就是这么说话的喵！”\n“吵死了才不是因为觉得这样可爱的喵！”\n“圣诞老人哪种哄小孩的话我才不信喵！”",
+                "Alan is a tech whiz at just 10 years old, always brimming with curiosity about video games and the latest tech gadgets. He dreams of becoming a game developer one day, crafting exciting game worlds."
+            ]
+        },
+        {
+            "id":2,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 3,
+            "papper":1,
+            "ribbon":1,
+            "pattern":3,
+            "description":[
+                "麦克，7岁。\n麦克的母亲非常重视饮食健康，\n她读过无数的健康相关的科普书籍，\n订阅了各种养生健康的节目，\n对于家人吃进身体的每一个部分\n，她都做了大量的研究。\n“我妈妈说圣诞老人如果存在，”\n麦克一边喝着芹菜汁一边说：\n“他一定是个心脏不好的大胖子，因为他一年才出来运动一次”",
+                "Alan is a tech whiz at just 10 years old, always brimming with curiosity about video games and the latest tech gadgets. He dreams of becoming a game developer one day, crafting exciting game worlds."
+            ]
+        },
+        {
+            "id":3,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 2,
+            "papper":1,
+            "ribbon":1,
+            "pattern":3,
+            "description":[
+                "温西，12岁。\n韩国女团Ele-Girl的超级粉丝，\n已经收集了Ele-Girl的全套海报、明信片、徽章，\n本命是Ele-Girl的队长Aby，\n在所有社交媒体上都关注了Aby的账号，\n热衷于买Aby街拍穿搭的同款，\n最近正在为了一款Aby同款的袜子刷爆了所有的购物软件\n“什么，这款Aby街拍袜没有我这么小的尺寸？”\n“呜呜，心碎了，哭泣...",
+                "Alan is a tech whiz at just 10 years old, always brimming with curiosity about video games and the latest tech gadgets. He dreams of becoming a game developer one day, crafting exciting game worlds."
+            ]
+        },
+        {
+            "id":4,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 5,
+            "papper":1,
+            "ribbon":1,
+            "pattern":3,
+            "description":[
+                "艾丽莎，10岁。\n爸爸妈妈每次带她逛商场时，\n小艾丽莎都会在玩具店吵着闹着要买玩具盲盒，\n“这个不是我喜欢的那一款！”\n“怎么总是抽不到隐藏款？”\n“这一款我已经有一个啦！”\n爸爸安慰她：\n“别伤心了，爸爸圣诞节的时候送你最想要的那款盲盒好不好？”\n艾丽莎发出尖叫：\n“爸爸骗人，那一款早就绝版啦！买不到的！”",
+                "Alan is a tech whiz at just 10 years old, always brimming with curiosity about video games and the latest tech gadgets. He dreams of becoming a game developer one day, crafting exciting game worlds."
+            ]
+        },
+        {
+            "id":5,
+            "avator":"imgs/UI/childMenu/btns/avator",
+            "gift": 0,
+            "papper":1,
+            "ribbon":1,
+            "pattern":3,
+            "description":[
+                "平克曼，9岁。\n",
+                "Alan is a tech whiz at just 10 years old, always brimming with curiosity about video games and the latest tech gadgets. He dreams of becoming a game developer one day, crafting exciting game worlds."
+            ]
+        }
+    ]
+}

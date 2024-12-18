@@ -18,6 +18,10 @@ export default class Game extends cc.Component {
         talkDebug:false
     }
 
+    // 是否是开始界面
+    @property
+    isStartPage:Boolean = false
+
     // 重新开始菜单
     @property(cc.Node)
     restartMenu: cc.Node = null
@@ -30,6 +34,17 @@ export default class Game extends cc.Component {
     @property(cc.Node)
     settingMenu: cc.Node = null
 
+    // 参数设置菜单
+    @property(cc.Node)
+    gameSettingMenu: cc.Node = null
+
+    // 操作规则菜单
+    @property(cc.Node)
+    rulesMenu: cc.Node = null
+
+    // 确定返回开始界面菜单
+    @property(cc.Node)
+    ensureBackToStartMenu: cc.Node = null
 
     // 显示孩子信息的菜单
     @property(cc.Node)
@@ -64,7 +79,7 @@ export default class Game extends cc.Component {
 
     // 语言选择
     // 0=中文 1=英文
-    lang = 1
+    lang = 0
 
     canvas = null
     
@@ -78,27 +93,26 @@ export default class Game extends cc.Component {
      */
     isPause: boolean = false
 
+    // 游戏是否结束
+    isGameOver: boolean = false
     onLoad(){
         this.canvas = cc.view.getCanvasSize()
         window.game = this
-        // 开启物理引擎
-        cc.director.getPhysicsManager().enabled = true
-        // 开启碰撞检测
-        cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true
-        cc.director.getCollisionManager().enabledDrawBoundingBox = true
-        // 每个孩子都初始化为未完成状态
-        this.childList.json.data.forEach(child=>{
-            child.done = false
-        })
-    }
+        if(!this.isStartPage){
+            // 开启物理引擎
+            cc.director.getPhysicsManager().enabled = true
+            // 开启碰撞检测
+            cc.director.getCollisionManager().enabled = true;
+            cc.director.getCollisionManager().enabledDebugDraw = true
+            cc.director.getCollisionManager().enabledDrawBoundingBox = true
+            // 每个孩子都初始化为未完成状态
+            this.childList.json.data.forEach(child=>{
+                child.done = false
+            })
+        }
 
-    start () {
-        // 开启碰撞检测
-        cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true
-        cc.director.getCollisionManager().enabledDrawBoundingBox = true
     }
+    start () {}
     // 游戏暂停
     Pause(){
         this.isPause = true
@@ -108,13 +122,25 @@ export default class Game extends cc.Component {
         this.isPause = false
     }
 
-    // 游戏开始
-    gameStart(){}
+    // 游戏开始，加载游戏场景
+    gameStart(){
+        cc.director.loadScene('level1',()=>{
+            console.log("游戏开始")
+        })
+    }
+
+    // 返回到游戏开始界面
+    returnToStartMenu(){
+        cc.director.loadScene('StartMenu',()=>{
+            console.log("开始界面")
+        })
+    }
+
 
     // 打开新的菜单
-    openMenu(newMenu:cc.Node){
+    openMenu(newMenu:cc.Node, closeOther:Boolean=false){
         this.Pause()
-        if(this.activeMenu){
+        if(this.activeMenu && closeOther){
             if(this.activeMenu.uuid == newMenu.uuid) return
             else {
                 // 关闭当前活跃的菜单
@@ -174,8 +200,58 @@ export default class Game extends cc.Component {
         this.closeMenu(this.settingMenu)
     }
 
+    /**** 设置菜单下的相关控制 *************************** */
+    // 开启游戏设置
+    openGameSetting(){
+        // 初始化设置菜单数值
+        window.globalData.initGameSettingMenu()
+        this.openMenu(this.gameSettingMenu, false)
+    }
+    // 关闭游戏设置
+    closeGameSetting(){
+        this.closeMenu(this.gameSettingMenu)
+    }
+
+    // 查看操作控制菜单
+    openOperationMenu(){
+        this.openMenu(this.rulesMenu, false)
+    }
+
+    // 关闭操作控制菜单
+    closeOperationMenu(){
+        this.closeMenu(this.rulesMenu)
+    }
+
+    // 加载上/下一页操作控制菜单
+    loadOperationMenu(event, dir){
+        let parent = event.target.parent
+        let gparent = parent.parent
+        let totalChildren = gparent.getChildren()
+        let parentIndex = parent.getSiblingIndex()
+        parent.active = false
+        if(dir == '-1'){
+            // 上一页
+            totalChildren[parentIndex - 1].active = true
+        }else if(dir == '1'){
+            totalChildren[parentIndex + 1].active = true
+        }
+    }
+
+    // 打开确定返回开始界面菜单
+    openSureStartMenu(){
+        this.openMenu(this.ensureBackToStartMenu, false)
+
+    }
+    // 关闭确定返回开始界面菜单
+    closeSureStartMenu(){
+        this.closeMenu(this.ensureBackToStartMenu)
+
+    }
     update(dt){
-        if(!this.isPause){
+        if(this.isStartPage){
+            return
+        }
+        if(!this.isPause && !this.isGameOver){
             this.setChildNumLabel()
             this.setTimeCounter(dt)
         }
@@ -188,6 +264,23 @@ export default class Game extends cc.Component {
         // done标记已经完成的孩子
         let doneCount = childList.filter(item=>item.done).length
         this.doneChildLabel.getComponent(cc.Label).string = `${doneCount} / ${total}`
+
+        // 所有孩子的礼物都分配完了
+        if(total == doneCount){
+            this.isGameOver = true
+            this.gameOver()
+        }
+    }
+
+    // 游戏结束
+    gameOver(){
+        cc.director.loadScene('GameWin',(error)=>{
+            if(error){
+                console.log(error)
+            }else{
+                console.log("GameOver界面")
+            }
+        })
     }
 
     // 倒计时时间
@@ -204,7 +297,7 @@ export default class Game extends cc.Component {
     // 重新开始游戏
     restartGame(){
         cc.director.loadScene('level1',()=>{
-            console.log('加载成功')
+            // console.log('加载成功')
         })
     }
 }
