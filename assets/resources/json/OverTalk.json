@@ -3,15 +3,17 @@
         {"id":0, "name":[
             "圣诞老人 :",
             "Santa :"
-        ],"color":[180,82,82]},
+        ],"color":[180,82,82],
+    "sound":"talk"},
         {"id":1, "name":[
             "小精灵 :",
             "Elfin :"
-        ],"color":[138,176,96]},
+        ],"color":[138,176,96],
+        "sound":"spriteTalk"},
         {"id":2, "name":[
             "作者 :",
             "Elfin :"
-        ],"color":[75,128,202]}
+        ],"color":[75,128,202],"sound":"authorTalk"}
     ],
     "data":[
         {

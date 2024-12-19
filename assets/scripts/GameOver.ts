@@ -56,12 +56,15 @@ export default class GameOver extends cc.Component {
         this.tNameLabelCp = this.talkerNameLabel.getComponent(cc.Label)
         this.tCLabelCp = this.talkContentLabel.getComponent(cc.Label)
         this.curScript = this.overScript.json
+        
         this.startTalk()
     }
     startTalk(){
         // 开始谈话
         this.toggleBanner(true).then(res=>{
-            this.startLoadTalk()
+            setTimeout(()=>{
+                this.startLoadTalk()
+            },1000)
         })
     }
     toggleBanner(isTalk){
@@ -106,9 +109,12 @@ export default class GameOver extends cc.Component {
             this.targetContent = ''
         })
     }
-    // update (dt) {}
+    update (dt) {
+        this.typingSpeed = 150 - window.globalData.textSpeed * 100
+    }
     // 模拟打字
-    simTyping(){    
+    simTyping(){   
+        window.globalData.playSound(this.talkerSound) 
         this.tCLabelCp.string += this.targetContent[this.typingLocation]
         this.typingLocation ++
         if(this.typingLocation < this.targetContent.length){
@@ -117,6 +123,8 @@ export default class GameOver extends cc.Component {
             },this.typingSpeed)
         }
     }
+    // 当前说话人的声音
+    talkerSound = ''
     // 加载下一句话
     loadNextWord(event:cc.Event.EventKeyboard){
         const talkEnd = ()=>{
@@ -156,6 +164,7 @@ export default class GameOver extends cc.Component {
         let talker = this.curScript.chara.find(item=>item.id == wordData.talker)
         this.tNameLabelCp.string = talker.name[window.globalData.lang]
         this.talkerNameLabel.color = new cc.Color(...talker.color)
+        this.talkerSound = talker.sound
 
         // 此处插入一个打字特效
         this.targetContent = wordData.content[window.globalData.lang]

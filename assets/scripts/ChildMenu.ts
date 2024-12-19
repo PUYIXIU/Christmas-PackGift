@@ -134,6 +134,7 @@ export default class ChildMenu extends cc.Component {
         if(this.curIndex < this.childList.json.data.length - 1){
             this.nextPageBtn.getComponent(cc.Button).interactable = true
         }
+        window.globalData.playSound('btnClick')
         this.loadChild()
     }
 
@@ -147,6 +148,7 @@ export default class ChildMenu extends cc.Component {
         if(this.curIndex > 0){
             this.prePageBtn.getComponent(cc.Button).interactable = true
         }
+        window.globalData.playSound('btnClick')
         this.loadChild()
     }
 }

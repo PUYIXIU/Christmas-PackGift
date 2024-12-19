@@ -8,7 +8,7 @@
 import ChildMenu from './ChildMenu'
 
 const {ccclass, property} = cc._decorator;
-
+import SettingMenu from './SettingMenu' 
 @ccclass
 export default class Game extends cc.Component {
 
@@ -77,10 +77,6 @@ export default class Game extends cc.Component {
 
     timeCounter:number = 0
 
-    // 语言选择
-    // 0=中文 1=英文
-    lang = 0
-
     canvas = null
     
     // 当前被激活的菜单
@@ -124,6 +120,7 @@ export default class Game extends cc.Component {
 
     // 游戏开始，加载游戏场景
     gameStart(){
+        window.globalData.playSound('btnClick')
         cc.director.loadScene('level1',()=>{
             console.log("游戏开始")
         })
@@ -131,6 +128,7 @@ export default class Game extends cc.Component {
 
     // 返回到游戏开始界面
     returnToStartMenu(){
+        window.globalData.playSound('btnClick')
         cc.director.loadScene('StartMenu',()=>{
             console.log("开始界面")
         })
@@ -139,6 +137,7 @@ export default class Game extends cc.Component {
 
     // 打开新的菜单
     openMenu(newMenu:cc.Node, closeOther:Boolean=false){
+        window.globalData.playSound('btnClick')
         this.Pause()
         if(this.activeMenu && closeOther){
             if(this.activeMenu.uuid == newMenu.uuid) return
@@ -154,6 +153,7 @@ export default class Game extends cc.Component {
 
     // 关闭菜单
     closeMenu(target:cc.Node){
+        window.globalData.playSound('btnClick')
         this.activeMenu = null
         target.active = false
         this.Continue()
@@ -204,8 +204,14 @@ export default class Game extends cc.Component {
     // 开启游戏设置
     openGameSetting(){
         // 初始化设置菜单数值
-        window.globalData.initGameSettingMenu()
+        // let comp = this.gameSettingMenu.children[0].getComponent(SettingMenu) as SettingMenu
+        // comp.initMenuData()
         this.openMenu(this.gameSettingMenu, false)
+
+        setTimeout(()=>{
+            this.gameSettingMenu.getComponentInChildren(SettingMenu).initMenuData()
+        },200)
+        
     }
     // 关闭游戏设置
     closeGameSetting(){
@@ -229,6 +235,7 @@ export default class Game extends cc.Component {
         let totalChildren = gparent.getChildren()
         let parentIndex = parent.getSiblingIndex()
         parent.active = false
+        window.globalData.playSound('btnClick')
         if(dir == '-1'){
             // 上一页
             totalChildren[parentIndex - 1].active = true
@@ -296,6 +303,7 @@ export default class Game extends cc.Component {
 
     // 重新开始游戏
     restartGame(){
+        window.globalData.playSound('btnClick')
         cc.director.loadScene('level1',()=>{
             // console.log('加载成功')
         })

@@ -9,7 +9,7 @@ const {ccclass, property} = cc._decorator;
 
 // 设置界面
 @ccclass
-export default class settingMenu extends cc.Component {
+export default class SettingMenu extends cc.Component {
 
     editSetting = {
         // 语言
@@ -170,17 +170,18 @@ export default class settingMenu extends cc.Component {
     // 修改语言
     handleChangeLang(event, type){
         type = Number(type)
-        if(window.globalData.lang == type) return
+        if(this.editSetting.lang == type) return
         this.editSetting.lang = type
         this.changeLangText()
+        this.toggleOptions(null)
     }
 
     // 修改文本框的文字内容
     changeLangText(){
+        if(!this.langSelector) return
         let label = this.langSelector.getChildByName('langLabel').getComponent(cc.Label)
         let optionBtnsNode = cc.find('LangSelector/textInput/options/view/content', this.node)
         let options = optionBtnsNode.children
-        debugger
         options.forEach((option, index)=>{
             let sprite = option.getComponentInChildren(cc.Sprite)
             if(index == this.editSetting.lang){
@@ -194,7 +195,11 @@ export default class settingMenu extends cc.Component {
         switch(this.editSetting.lang){
             case 0: 
             // 中文
-                label.string = '中文'
+                if(window.globalData.lang == 0){
+                    label.string = '中文'
+                }else{
+                    label.string = 'Chinese'
+                }
                 break;
             case 1:
                 // 英文

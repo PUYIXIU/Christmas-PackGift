@@ -15,22 +15,29 @@ export default class GlobalData extends cc.Component {
 
     // 语言选择
     // 0=中文 1=英文
-    lang:number = 1
+    lang:number = 0
 
     // 音乐音量
     musicStrong:number = 0.5
 
     // 音效音量
-    effectStrong:number = 0.5
+    effectStrong:number = 1
 
     // 文本速度
     textSpeed: number = 0.5
+
+    // 音效控制器
+    @property(cc.Node)
+    SoundController:cc.Node = null
 
     onLoad(){
         window.globalData = this
         this.init = true
         this.preload()
         cc.game.addPersistRootNode(this.node)
+        if(this.SoundController){
+            cc.game.addPersistRootNode(this.SoundController)
+        }
     }
 
     start () {
@@ -66,5 +73,11 @@ export default class GlobalData extends cc.Component {
                 console.log('游戏结束界面加载成功')
             }
         })
+    }
+
+    playSound(name:string){
+        let sound = this.SoundController.getChildByName(name)
+        let audio = sound.getComponent(cc.AudioSource)
+        audio.play()
     }
 }

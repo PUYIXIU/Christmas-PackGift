@@ -2,7 +2,7 @@
     "data":[
         {
             "id":0,
-            "avator":"imgs/UI/childMenu/btns/avator",
+            "avator":"imgs/UI/childMenu/gameboy",
             "gift": 1,
             "papper":0,
             "ribbon":0,
@@ -10,6 +10,66 @@
             "description":[
                 "游戏机",
                 "GameBoy"
+            ]
+        },
+        {
+            "id":1,
+            "avator":"imgs/UI/childMenu/socks",
+            "gift": 2,
+            "papper":0,
+            "ribbon":0,
+            "pattern":0,
+            "description":[
+                "袜子",
+                "Socks"
+            ]
+        },
+        {
+            "id":2,
+            "avator":"imgs/UI/childMenu/medicine",
+            "gift": 3,
+            "papper":0,
+            "ribbon":0,
+            "pattern":0,
+            "description":[
+                "保健药",
+                "Medicine"
+            ]
+        },
+        {
+            "id":3,
+            "avator":"imgs/UI/childMenu/catgirl",
+            "gift": 4,
+            "papper":0,
+            "ribbon":0,
+            "pattern":0,
+            "description":[
+                "猫耳",
+                "CatEar"
+            ]
+        },
+        {
+            "id":4,
+            "avator":"imgs/UI/childMenu/mysterybox",
+            "gift": 5,
+            "papper":0,
+            "ribbon":0,
+            "pattern":0,
+            "description":[
+                "盲盒",
+                "mysterybox"
+            ]
+        },
+        {
+            "id":5,
+            "avator":"imgs/UI/childMenu/tedybear",
+            "gift": 0,
+            "papper":0,
+            "ribbon":0,
+            "pattern":0,
+            "description":[
+                "泰迪熊",
+                "tedybear"
             ]
         }
     ]

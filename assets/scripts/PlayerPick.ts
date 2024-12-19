@@ -98,10 +98,12 @@ export default class PlayerPick extends cc.Component {
         this.pickingCD = 20
         // 如果手中有物品，丢出去
         if(this.pickingItem) {
+            window.globalData.playSound('pick')
             this.throwOut()
             return
         }
         if(this.pickItemList.length > 0){
+            window.globalData.playSound('pick')
             this.pickingItem = this.pickItemList.shift()
             this.toggleSprite('pick')
         }
@@ -134,6 +136,7 @@ aa
     onBeginContact(contact, self, other){
         // 判断是否是可交互物品，是否是交互探测碰撞盒检测到的碰撞
         if(pickableList.includes(other.node.group) && self.tag == playerCollistionTags.pick){
+            
             // 检测是否已经存在这个物品
             if(this.pickItemList.findIndex(item=>item.uuid == other.node.uuid) < 0){
                 // 推入该物品

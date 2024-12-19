@@ -50,6 +50,8 @@ export default class GiftBox extends cc.Component {
      */
     pattern = 0
     
+
+
     start () {
 
     }
@@ -94,13 +96,16 @@ export default class GiftBox extends cc.Component {
     onBeginContact(contact, self, other){
         // 检测是否是雪橇车的礼物检测碰撞盒
         if(other.tag == 3 && other.node.name == 'SnowCar'){
+            let success = false
             // debugger
             // 对礼物组合进行判定
             let data = window.game.childList.json.data
             for(let i = 0; i< data.length; i++){
                 let child = data[i]
                 // 已经包装完毕
-                if(child.isDone) break;
+                if(child.isDone) {
+                    continue
+                };
 
                 let giftList = window.game.globalDict.json.gift
                 let wish = giftList.find(item=>item.value == child.gift)
@@ -113,11 +118,19 @@ export default class GiftBox extends cc.Component {
                 ){
                     // 判定礼物分配结束
                     child.done = true
-                    continue;
+                    success = true
+                    this.node.group = "default"
+                    break;
                 }
             }
-            console.log(window.game.childList.json.data)
+            // console.log(window.game.childList.json.data)
+            if(success){
+                window.globalData.playSound('rightBox')
+            }else{
+                window.globalData.playSound('wrongBox')
+            }
         }
     }
+
 
 }

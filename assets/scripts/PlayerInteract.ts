@@ -9,7 +9,8 @@ import GiftBox from "./GiftBox";
 import PlayerPick from "./PlayerPick";
 import Gift from "./Gift";
 const {ccclass, property} = cc._decorator;
-
+import NPC from './NPC'
+import PlayerMove from "./PlayerMove";
 // 初始化的礼物盒样式
 const initGiftStyle = {
     color: 0,
@@ -63,6 +64,10 @@ export default class PlayerInteract extends cc.Component {
     @property(cc.Node)
     talkContentLabel:cc.Node = null
     tCLabelCp:cc.Label = null
+
+    // 谈话的目标，用于面对面说话用
+    @property(cc.Node)
+    TalkerNPC:cc.Node = null
     
     curTalkIndex:number = 0
 
@@ -147,6 +152,14 @@ export default class PlayerInteract extends cc.Component {
                     cc.fadeTo(menuDur, 0),
                 )
                 this.menuNavs.right.runAction(rightMenuAction)
+
+                // 圣诞需要和小精灵面对面
+                let npc = this.TalkerNPC.getComponent(NPC)
+                let move = this.node.getComponent(PlayerMove)
+                if(npc.dir == move.dir){
+                    // 两人同向
+                    move.setFaceDir(-npc.dir)
+                }
 
             })
         }else{
@@ -234,7 +247,10 @@ export default class PlayerInteract extends cc.Component {
     // 打开样式菜单
     openStyleMenu(){
         
-        if(!this.pickComp.pickingItem) return
+        if(!this.pickComp.pickingItem) {
+            window.globalData.playSound('wrongBox')
+            return
+        }
         // 当前手上抓着的礼物盒
         let pickingItem = this.pickComp.pickingItem
         if(pickingItem.group !== 'GiftBox') return
@@ -242,7 +258,6 @@ export default class PlayerInteract extends cc.Component {
         this.initStyleMenu()
         window.game.styleMenu.active = true
         window.game.openStyleMenu()
-        console.log("打开样式文件")
     }
 
     // 关闭样式菜单
@@ -269,6 +284,7 @@ export default class PlayerInteract extends cc.Component {
     }
     // 修改编辑菜单中的选项
     setBoxStyle(event, type){
+        window.globalData.playSound('btnClick')
         let [key, value] = type.split('-')
         value = Number(value)
         this.editStyle[key] = value
@@ -306,6 +322,7 @@ export default class PlayerInteract extends cc.Component {
         if(window.game.styleMenu.active){
             this.setStyleMenuBtns()
         }
+        this.typingSpeed = 150 - window.globalData.textSpeed * 100
     }
     // 检测碰撞
     onBeginContact(contact, self, other){
@@ -339,6 +356,7 @@ export default class PlayerInteract extends cc.Component {
 
     // 模拟打字
     simTyping(){    
+        window.globalData.playSound(this.talkerSound)
         this.tCLabelCp.string += this.targetContent[this.typingLocation]
         this.typingLocation ++
         if(this.typingLocation < this.targetContent.length){
@@ -348,6 +366,8 @@ export default class PlayerInteract extends cc.Component {
         }
     }
 
+    // 当前说话人的声音
+    talkerSound = ''
     // 加载下一句话
     loadNextWord(event:cc.Event.EventKeyboard){
         const talkEnd = ()=>{
@@ -387,6 +407,7 @@ export default class PlayerInteract extends cc.Component {
         let talker = this.curScript.chara.find(item=>item.id == wordData.talker)
         this.tNameLabelCp.string = talker.name[window.globalData.lang]
         this.talkerNameLabel.color = new cc.Color(...talker.color)
+        this.talkerSound = talker.sound
 
         // 此处插入一个打字特效
         this.targetContent = wordData.content[window.globalData.lang]
