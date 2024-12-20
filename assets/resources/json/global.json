@@ -3,7 +3,7 @@
         {"value":0, "label":"红","url":"imgs/UI/childMenu/btns/papper-red"},
         {"value":1, "label":"蓝","url":"imgs/UI/childMenu/btns/papper-blue"},
         {"value":2, "label":"绿","url":"imgs/UI/childMenu/btns/papper-green"}
-    ],
+    ],  
     "ribbon":[
         {"value":0, "label":"白","url":"imgs/UI/childMenu/btns/ribbon-white"},
         {"value":1, "label":"黄","url":"imgs/UI/childMenu/btns/ribbon-yellow"},

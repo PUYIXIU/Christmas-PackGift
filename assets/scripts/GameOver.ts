@@ -112,13 +112,14 @@ export default class GameOver extends cc.Component {
     update (dt) {
         this.typingSpeed = 150 - window.globalData.textSpeed * 100
     }
+    typingTimer = null
     // 模拟打字
     simTyping(){   
         window.globalData.playSound(this.talkerSound) 
         this.tCLabelCp.string += this.targetContent[this.typingLocation]
         this.typingLocation ++
         if(this.typingLocation < this.targetContent.length){
-            setTimeout(()=>{
+            this.typingTimer = setTimeout(()=>{
                 this.simTyping()
             },this.typingSpeed)
         }
@@ -150,7 +151,14 @@ export default class GameOver extends cc.Component {
 
         if(event && event.keyCode !== cc.macro.KEY.e) return
         // 打字还没有打完
-        if(this.tCLabelCp.string.length !== this.targetContent.length) return
+        // if(this.tCLabelCp.string.length !== this.targetContent.length) return
+        // 字还没有打完，按E直接显示全部对话
+        if(this.tCLabelCp.string.length !== this.targetContent.length) {
+            this.typingLocation = this.targetContent.length
+            this.tCLabelCp.string = this.targetContent
+            clearTimeout(this.typingTimer)
+            return
+        }
         this.typingLocation = 0
         this.targetContent = ''
 

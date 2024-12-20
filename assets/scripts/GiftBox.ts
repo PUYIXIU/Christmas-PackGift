@@ -23,7 +23,9 @@ const PatternType = [
 // 礼物盒子
 @ccclass
 export default class GiftBox extends cc.Component {
-    
+
+    // 是否是通过合成产生的
+    isMerge:Boolean = true
     // 礼物
     gift:cc.Node = null
 
@@ -49,11 +51,12 @@ export default class GiftBox extends cc.Component {
      * 3=棋盘格
      */
     pattern = 0
-    
 
+    // 匹配成功
+    done = false
 
     start () {
-
+        this.playMergeEffect()
     }
 
     setPattern(pattern){
@@ -68,6 +71,7 @@ export default class GiftBox extends cc.Component {
     // 设置礼物
     setGift(gift){
         this.gift = gift
+        this.playSound()
     }
 
     // 重新加载贴图
@@ -89,11 +93,14 @@ export default class GiftBox extends cc.Component {
                 return
             }
             this.node.getComponent(cc.Sprite).spriteFrame = assets
+            this.isMerge && this.playChange()
         })
     }
 
     // 开始碰撞
     onBeginContact(contact, self, other){
+        if(!this.isMerge) return
+        if(this.done) return
         // 检测是否是雪橇车的礼物检测碰撞盒
         if(other.tag == 3 && other.node.name == 'SnowCar'){
             let success = false
@@ -125,12 +132,45 @@ export default class GiftBox extends cc.Component {
             }
             // console.log(window.game.childList.json.data)
             if(success){
-                window.globalData.playSound('rightBox')
+                this.done = true
+                this.playMergeEffect()
+                this.playSound()
+                let collider = this.node.getComponent(cc.PhysicsPolygonCollider)
+                collider.density = 1000
+                collider.friction = 1000
+
             }else{
+                // 施加一个向外的力
+                const rb = this.node.getComponent(cc.RigidBody)
+                let v = rb.linearVelocity
+                v.x = -300 
+                v.y = 300
+                rb.linearVelocity = v
+                this.playBadEffect()
                 window.globalData.playSound('wrongBox')
             }
         }
     }
-
+    playChange(){
+        debugger
+        window.globalData.playSound('change')
+        let effect = this.node.getChildByName('Change').getComponent(cc.ParticleSystem)
+        effect.resetSystem()
+    }
+    playSound(){
+        window.globalData.playSound('merge')
+    }
+    playMergeEffect(){
+        let effect = this.node.getChildByName('Merge').getComponent(cc.ParticleSystem)
+        effect.resetSystem()
+    }
+    playBadEffect(){
+        let effect = this.node.getChildByName('Bad').getComponent(cc.ParticleSystem)
+        effect.resetSystem()
+    }
+    playSuccessEffect(){
+        let effect = this.node.getChildByName('Success').getComponent(cc.ParticleSystem)
+        effect.resetSystem()
+    }
 
 }

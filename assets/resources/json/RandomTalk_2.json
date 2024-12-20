@@ -20,43 +20,51 @@
             
             "talker":0,
             "content":[
-                "和那些礼物广告商们谈的怎么样？",
-                "How did the talks with those gift advertisers go?"
+                "今晚我们一定要..",
+                "Do we really have to ..."
+            ]
+        },
+        {
+            
+            "talker":0,
+            "content":[
+                "...直播送礼过程吗？",
+                "... livestream the gift-giving process tonight?"
             ]
         },
         {
             "talker":1,
             "content":[
-                "非常愉快！",
-                "Very pleasant!"
+                "当然了！",
+                "Of course!"
             ]
         },
         {
             "talker":1,
             "content":[
-                "他们对与我们的合作很有兴趣！",
-                "They're very interested in collaborating with us!"
-            ]
-        },
-        {
-            "talker":1,
-            "content":[
-                "能请到圣诞老人帮他们宣传...",
-                "Having Santa Claus promote for them..."
-            ]
-        },
-        {
-            "talker":1,
-            "content":[
-                "这是多么大的荣幸！",
-                "...is such a great honor!"
+                "这可是个吸引流量的好机会！",
+                "It's a great chance to attract traffic!"
             ]
         },
         {
             "talker":0,
             "content":[
-                "哎，总觉得你在打什么坏主意",
-                " I have a feeling you're plotting something naughty."
+                "我可不这么认为",
+                "I don't think so."
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "特别是当孩子们看到…",
+                "Especially when the kids see..."
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "…我是如何钻烟囱的时候",
+                " ...how I'm climbing down the chimney"
             ]
         }
 

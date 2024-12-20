@@ -20,43 +20,44 @@
             
             "talker":0,
             "content":[
-                "和那些礼物广告商们谈的怎么样？",
-                "How did the talks with those gift advertisers go?"
+                "你最好...",
+                " You'd better tie the livestreaming phone..."
             ]
         },
         {
-            "talker":1,
+            
+            "talker":0,
             "content":[
-                "非常愉快！",
-                "Very pleasant!"
-            ]
-        },
-        {
-            "talker":1,
-            "content":[
-                "他们对与我们的合作很有兴趣！",
-                "They're very interested in collaborating with us!"
-            ]
-        },
-        {
-            "talker":1,
-            "content":[
-                "能请到圣诞老人帮他们宣传...",
-                "Having Santa Claus promote for them..."
-            ]
-        },
-        {
-            "talker":1,
-            "content":[
-                "这是多么大的荣幸！",
-                "...is such a great honor!"
+                "...把直播的手机拴在脖子上",
+                "...around your neck."
             ]
         },
         {
             "talker":0,
             "content":[
-                "哎，总觉得你在打什么坏主意",
-                " I have a feeling you're plotting something naughty."
+                "雪橇车开的会非常颠簸",
+                "The sleigh ride will be very bumpy."
+            ]
+        },
+        {
+            "talker":0,
+            "content":[
+                "我可不想看见你把手机从半空甩出去",
+                " I don't want to see you drop the phone mid-air"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "我早就告诉你...",
+                "I've told you for ages..."
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "该用那辆破雪橇换架飞机啦！",
+                "we should replace sleigh with airplane!"
             ]
         }
 

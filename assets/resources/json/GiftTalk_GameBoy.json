@@ -3,34 +3,48 @@
         {"id":0, "name":[
             "圣诞老人 :",
             "Santa :"
-        ],"color":[180,82,82]},
+        ],"color":[180,82,82],
+    "sound":"talk"},
         {"id":1, "name":[
             "小精灵 :",
             "Elfin :"
-        ],"color":[138,176,96]}
+        ],"color":[138,176,96],
+        "sound":"spriteTalk"},
+        {"id":2, "name":[
+            "作者 :",
+            "Author :"
+        ],"color":[75,128,202],"sound":"authorTalk"}
     ],
     "data":[
         {
             
             "talker":1,
             "content":[
-                "这不是最新款的游戏机吗！",
-                "Hello, Mr Santa"
+                "天哪，游戏机！",
+                "Oh my gosh, a gaming console!"
             ]
         },
         {
             
-            "talker":1,
+            "talker":0,
             "content":[
-                "你怎么舍得送这种贵物",
-                "Hello, Mr Santa"
+                "孩子们肯定会喜欢的。",
+                "Kids are gonna love this."
             ]
         },
         {
+            
             "talker":0,
             "content":[
-                "广告方投资的...",
-                "Hello, little elf"
+                "怎么没有附送配套游戏？",
+                "Why didn't they include a game with it?"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "这个问题就留给他们的父母吧。",
+                "That's a question for their parents."
             ]
         }
 

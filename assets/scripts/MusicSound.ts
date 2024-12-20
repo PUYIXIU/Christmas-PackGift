@@ -23,6 +23,7 @@ export default class MusicSound extends cc.Component {
     @property
     isSoundEffect = false
 
+    isControl = true
     
     start () {
     }
@@ -39,6 +40,8 @@ export default class MusicSound extends cc.Component {
     }
 
     update(){
+        // 不在掌控之下，就返回
+        if(!this.isControl) return
         if(this.isGroup){
             this.node.children.forEach(node=>{
                 this.constrolVolumn(node)

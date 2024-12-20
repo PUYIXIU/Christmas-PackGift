@@ -6,6 +6,7 @@
 //  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
 
 import ChildMenu from './ChildMenu'
+import MusicSound from './MusicSound';
 
 const {ccclass, property} = cc._decorator;
 import SettingMenu from './SettingMenu' 
@@ -15,7 +16,7 @@ export default class Game extends cc.Component {
     // 调试配置
     debug = {
         // 对话调试
-        talkDebug:false
+        talkDebug:true
     }
 
     // 是否是开始界面
@@ -42,10 +43,18 @@ export default class Game extends cc.Component {
     @property(cc.Node)
     rulesMenu: cc.Node = null
 
+    // 关于游戏菜单
+    @property(cc.Node)
+    aboutGameMenu: cc.Node = null
+
     // 确定返回开始界面菜单
     @property(cc.Node)
     ensureBackToStartMenu: cc.Node = null
 
+    // 加载中
+    @property(cc.Node)
+    loadingPage: cc.Node = null
+    
     // 显示孩子信息的菜单
     @property(cc.Node)
     childMenu: cc.Node = null
@@ -74,6 +83,11 @@ export default class Game extends cc.Component {
     // 计时器label
     @property(cc.Node)
     timeLabel: cc.Node = null
+
+    
+    // 胜利特效
+    @property(cc.Node)
+    gameWinEffect: cc.Node = null
 
     timeCounter:number = 0
 
@@ -105,10 +119,15 @@ export default class Game extends cc.Component {
             this.childList.json.data.forEach(child=>{
                 child.done = false
             })
+        }else{
         }
 
     }
-    start () {}
+    start () {
+        if(this.isStartPage && window.globalData.init){
+            this.loadingPage.active = false
+        }
+    }
     // 游戏暂停
     Pause(){
         this.isPause = true
@@ -120,8 +139,10 @@ export default class Game extends cc.Component {
 
     // 游戏开始，加载游戏场景
     gameStart(){
+        if(!window.globalData.start) return
         window.globalData.playSound('btnClick')
         cc.director.loadScene('level1',()=>{
+        // cc.director.loadScene('GameWin',()=>{
             console.log("游戏开始")
         })
     }
@@ -137,6 +158,7 @@ export default class Game extends cc.Component {
 
     // 打开新的菜单
     openMenu(newMenu:cc.Node, closeOther:Boolean=false){
+        if(!window.globalData.init) return
         window.globalData.playSound('btnClick')
         this.Pause()
         if(this.activeMenu && closeOther){
@@ -228,6 +250,16 @@ export default class Game extends cc.Component {
         this.closeMenu(this.rulesMenu)
     }
 
+    // 打开关于菜单
+    openAboutGameMenu(){
+        this.openMenu(this.aboutGameMenu)
+    }
+
+    // 关闭关于菜单
+    closeAboutGameMenu(){
+        this.closeMenu(this.aboutGameMenu)
+    }
+
     // 加载上/下一页操作控制菜单
     loadOperationMenu(event, dir){
         let parent = event.target.parent
@@ -279,15 +311,43 @@ export default class Game extends cc.Component {
         }
     }
 
+    fadeStep = 0.1
+    fadeSpeed = 200
+    // 背景音乐消失
+    backFadeOut(){
+        let audio = this.node.getComponent(cc.AudioSource)
+        
+        audio.volume -= this.fadeStep
+        if(audio.volume >0){
+            setTimeout(()=>{
+                this.backFadeOut()
+            },this.fadeSpeed)
+        }
+    }
+
     // 游戏结束
     gameOver(){
-        cc.director.loadScene('GameWin',(error)=>{
-            if(error){
-                console.log(error)
-            }else{
-                console.log("GameOver界面")
-            }
-        })
+        let musicController = this.node.getComponent(MusicSound)
+        musicController.isControl = false
+        let globalController = window.globalData.node.getComponent(MusicSound)
+        musicController.isControl = false
+
+        this.backFadeOut()
+        window.globalData.playFadeInSound('gamingMusic',this.fadeStep,this.fadeSpeed)
+        setTimeout(()=>{
+
+            cc.director.loadScene('GameWin',(error)=>{
+                if(error){
+                    console.log(error)
+                }else{
+                    console.log("GameOver界面")
+                }
+            })
+            },7500)
+        // 显示胜利特效
+        this.gameWinEffect.active = true
+
+
     }
 
     // 倒计时时间

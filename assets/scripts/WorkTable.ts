@@ -182,6 +182,7 @@ export default class WorkTable extends cc.Component {
     this.spinRadius = initSpinRadius
     this.spinSpeed = initSpinSpeed
     this.isMerge = false
+
   }
   update() {
     this.spinSpeed = initSpinSpeed

@@ -3,49 +3,55 @@
         {"id":0, "name":[
             "圣诞老人 :",
             "Santa :"
-        ],"color":[180,82,82]},
+        ],"color":[180,82,82],
+    "sound":"talk"},
         {"id":1, "name":[
             "小精灵 :",
             "Elfin :"
-        ],"color":[138,176,96]}
+        ],"color":[138,176,96],
+        "sound":"spriteTalk"},
+        {"id":2, "name":[
+            "作者 :",
+            "Author :"
+        ],"color":[75,128,202],"sound":"authorTalk"}
     ],
     "data":[
         {
             
-            "talker":1,
+            "talker":0,
             "content":[
-                "天哪，送袜子？",
-                "Hello, Mr Santa"
+                "袜子，这也太寒酸了。",
+                "Socks? That's a bit too plain."
             ]
         },
         {
-            "talker":0,
+            "talker":1,
             "content":[
-                "连我自己都觉得寒酸",
-                "Hello, little elf"
+                "寒酸？这可是联名潮袜！",
+                "These are limited edition, designer socks!"
             ]
         },        
         {
             
             "talker":1,
             "content":[
-                "等等，这不是......",
-                "Hello, Mr Santa"
+                "在线上拍卖可是被炒到1000$！",
+                "They're being bid up to $1000 in online auctions!"
             ]
         },    
         {
             
-            "talker":1,
+            "talker":0,
             "content":[
-                "人气角色【樱落雪】的周边袜子嘛！！",
-                "Hello, Mr Santa"
+                "天哪，1000$！",
+                "Oh my, $1000!"
             ]
         },
         {
             "talker":0,
             "content":[
-                "Huh？",
-                "Hello, little elf"
+                "这种东西真的适合作为礼物吗？",
+                "Is this really appropriate as a gift?"
             ]
         }
 

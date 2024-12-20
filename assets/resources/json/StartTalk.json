@@ -12,72 +12,86 @@
         "sound":"spriteTalk"},
         {"id":2, "name":[
             "作者 :",
-            "Elfin :"
+            "Author :"
         ],"color":[75,128,202],"sound":"authorTalk"}
     ],
     "data":[
         {
             "talker":0,
             "content":[
-                "今天12月13日嗷",
-                "Hello, little elf"
+                "开始准备今年的圣诞礼物吧！",
+                "Start preparing gifts for this year!"
             ]
         },
         {
             
+            "talker":0,
+            "content":[
+                "我需要彩纸、丝带和礼物",
+                "I need paper, ribbons and gifts"
+            ]
+        },
+        {
             "talker":1,
             "content":[
-                "距离圣诞节还有2周",
-                "Hello, Mr Santa"
+                "材料散落在房间的各个角落",
+                "Materials were scattered all over the room"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "把它们带到合成台",
+                "Take materials to the mixer"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "制作成礼盒！",
+                "Synthesize into gift boxes!"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "还要查看孩子们寄来的信件",
+                "Go through the mail from kids"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "按照他们的喜好定制礼盒",
+                "Customize the gift box to their liking"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "然后将礼盒抛入雪橇",
+                "Throw the box into the sled"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "如果遇到不清楚的礼物",
+                "If you come across a gift you don't understand"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "可以带来向我获取提示",
+                "You can bring it to me for tips"
             ]
         },
         {
             "talker":0,
             "content":[
-                "不知道作者今天又捣鼓出啥了",
-                "Hello, little elf"
-            ]
-        },
-        {
-            "talker":1,
-            "content":[
-                "挑小孩的菜单做出来了",
-                "Hello, little elf"
-            ]
-        },
-        {
-            "talker":0,
-            "content":[
-                "还可以嘛~~~",
-                "Hello, little elf"
-            ]
-        },
-        {
-            "talker":1,
-            "content":[
-                "还有一些简单的UI按钮",
-                "Hello, little elf"
-            ]
-        },
-        {
-            "talker":0,
-            "content":[
-                "感觉有点不美观呢",
-                "Hello, little elf"
-            ]
-        },
-        {
-            "talker":1,
-            "content":[
-                "这只是第一版而已吧？",
-                "Hello, little elf"
-            ]
-        },
-        {
-            "talker":2,
-            "content":[
-                "什么！还有下一版？？？",
-                "Hello, little elf"
+                "开始包装礼物吧！",
+                "Let's wrapping gift boxes!"
             ]
         }
     ]

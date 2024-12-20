@@ -12,23 +12,78 @@
         "sound":"spriteTalk"},
         {"id":2, "name":[
             "作者 :",
-            "Elfin :"
+            "Developer :"
         ],"color":[75,128,202],"sound":"authorTalk"}
     ],
     "data":[
         {
-            "talker":0,
+            "talker":1,
             "content":[
-                "游戏结束对话测试",
-                "Hello, little elf"
+                "观众朋友们",
+                "Ladies and gentlemen"
+            ]
+        },
+        {
+            "talker":1,
+            "content":[
+                "欢迎来到圣诞老人的直播间",
+                " Welcome to Santa's live stream"
             ]
         },
         {
             
             "talker":1,
             "content":[
-                "游戏结束对话测试",
-                "Hello, Mr Santa"
+                "这里是圣诞直播夜现场",
+                "This is the live broadcast of Santa's Night"
+            ]
+        },
+        {
+            
+            "talker":1,
+            "content":[
+                "今夜...",
+                "Tonight..."
+            ]
+        },
+        {
+            
+            "talker":1,
+            "content":[
+                "每个好孩子都会收到礼物！",
+                "Every good child will receive a gift!"
+            ]
+        },
+        {
+            
+            "talker":0,
+            "content":[
+                "HOHOHO！祝你们圣诞节快乐！",
+                "HOHOHO! Merry Christmas to you all!"
+            ]
+        },
+        {
+            
+            "talker":1,
+            "content":[
+                "圣诞节快乐！",
+                "Merry Christmas!"
+            ]
+        },
+        {
+            
+            "talker":0,
+            "content":[
+                "迎接即将到来的2025年吧！",
+                "Let's welcome the upcoming year of 2025!"
+            ]
+        },
+        {
+            
+            "talker":2,
+            "content":[
+                "圣诞节快乐！",
+                "Merry Christmas!"
             ]
         }
     ]

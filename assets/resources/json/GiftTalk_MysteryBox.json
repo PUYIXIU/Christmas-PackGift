@@ -3,60 +3,41 @@
         {"id":0, "name":[
             "圣诞老人 :",
             "Santa :"
-        ],"color":[180,82,82]},
+        ],"color":[180,82,82],
+    "sound":"talk"},
         {"id":1, "name":[
             "小精灵 :",
             "Elfin :"
-        ],"color":[138,176,96]}
+        ],"color":[138,176,96],
+        "sound":"spriteTalk"},
+        {"id":2, "name":[
+            "作者 :",
+            "Author :"
+        ],"color":[75,128,202],"sound":"authorTalk"}
     ],
     "data":[
         {
             
-            "talker":1,
+            "talker":0,
             "content":[
-                "盲盒",
-                "Hello, Mr Santa"
+                "这是什么，没拆的肥皂盒吗？",
+                "What's this, an unopened soap box?"
             ]
         },
         {
             "talker":0,
             "content":[
-                "没有孩子可以拒绝这个",
-                "Hello, little elf"
+                "我能拆开看看吗？",
+                "Can I take it apart to see?"
             ]
         },        
         {
             
             "talker":1,
             "content":[
-                "哇哦",
-                "Hello, Mr Santa"
-            ]
-        },       
-        {
-            
-            "talker":1,
-            "content":[
-                "你说这话的时候...",
-                "Hello, Mr Santa"
-            ]
-        },    
-        {
-            
-            "talker":1,
-            "content":[
-                "看上去就像个七旬老头子",
-                "Hello, Mr Santa"
-            ]
-        },    
-        {
-            
-            "talker":0,
-            "content":[
-                "因为我就是个老头子！",
-                "Hello, Mr Santa"
+                "千万别！这是玩具盲盒！",
+                "Absolutely not! It's a mystery toy box!"
             ]
         }
-
     ]
 }

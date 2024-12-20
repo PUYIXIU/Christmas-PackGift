@@ -84,7 +84,9 @@ export default class PlayerInteract extends cc.Component {
         })
 
         cc.resources.load([
-            'json/RandomTalk_1'
+            'json/RandomTalk_1',
+            'json/RandomTalk_2',
+            'json/RandomTalk_3',
         ],cc.JsonAsset,(error:Error, assets: cc.JsonAsset[])=>{
             if(error){
                 console.log(error)
@@ -354,13 +356,14 @@ export default class PlayerInteract extends cc.Component {
     // 目标打字内容
     targetContent:string = ''
 
+    typingTimer = null
     // 模拟打字
     simTyping(){    
         window.globalData.playSound(this.talkerSound)
-        this.tCLabelCp.string += this.targetContent[this.typingLocation]
+        this.tCLabelCp.string += (this.targetContent[this.typingLocation] || '')
         this.typingLocation ++
         if(this.typingLocation < this.targetContent.length){
-            setTimeout(()=>{
+            this.typingTimer = setTimeout(()=>{
                 this.simTyping()
             },this.typingSpeed)
         }
@@ -379,8 +382,10 @@ export default class PlayerInteract extends cc.Component {
             this.curScript = null
             cc.systemEvent.off(
                 cc.SystemEvent.EventType.KEY_UP,
-                this.loadNextWord
+                this.loadNextWord,
+                this
             )
+            // cc.systemEvent.removeAll(cc.SystemEvent.EventType.KEY_UP)
             this.stopTalk()
         }
         if(!this.curScript) return // 为了解决键盘无法解绑的问题，简单粗暴的解决方式
@@ -388,12 +393,23 @@ export default class PlayerInteract extends cc.Component {
         // 输入的是空格，跳过对话
         if(event && event.keyCode == cc.macro.KEY.space){
             talkEnd()
+            this.typingLocation = 0
+            this.targetContent = ''
             return 
         }
 
         if(event && event.keyCode !== cc.macro.KEY.e) return
         // 打字还没有打完
-        if(this.tCLabelCp.string.length !== this.targetContent.length) return
+        // if(this.tCLabelCp.string.length !== this.targetContent.length) return
+        // 字还没有打完，按E直接显示全部对话
+        if(this.tCLabelCp.string.length !== this.targetContent.length) {
+            this.typingLocation = this.targetContent.length
+            this.tCLabelCp.string = this.targetContent
+            clearTimeout(this.typingTimer)
+            // this.typingLocation = 0
+            // this.targetContent = ''
+            return
+        }
         this.typingLocation = 0
         this.targetContent = ''
 
@@ -422,6 +438,8 @@ export default class PlayerInteract extends cc.Component {
 
     // 是否是游戏结束对话
     isGameEndTalk:boolean = false
+
+    randomTalkIndex = 0
     // 加载对话
     startLoadTalk(){
 
@@ -444,14 +462,16 @@ export default class PlayerInteract extends cc.Component {
                 this.curScript = gift.getComponent(Gift).script.json
             }else{
                 // 如果是其它情况，则加载随机对话
-                this.curScript = this.randomTalkScript[0]
+                this.curScript = this.randomTalkScript[this.randomTalkIndex]
+                this.randomTalkIndex = (this.randomTalkIndex + 1) % this.randomTalkScript.length
             }
         }
         
         this.loadNextWord(null)
         cc.systemEvent.on(
             cc.SystemEvent.EventType.KEY_UP,
-            this.loadNextWord.bind(this)
+            this.loadNextWord,
+            this
         )
         
     }

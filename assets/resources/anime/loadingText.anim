@@ -1,0 +1,39 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "loadingText",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.3333333333333333,
+  "sample": 60,
+  "speed": 0.3,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Label": {
+        "string": [
+          {
+            "frame": 0,
+            "value": "L O A D I N G      "
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": "L O A D I N G .    "
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": "L O A D I N G . .  "
+          },
+          {
+            "frame": 0.25,
+            "value": "L O A D I N G . . ."
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": "L O A D I N G      "
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

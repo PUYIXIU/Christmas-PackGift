@@ -3,58 +3,64 @@
         {"id":0, "name":[
             "圣诞老人 :",
             "Santa :"
-        ],"color":[180,82,82]},
+        ],"color":[180,82,82],
+    "sound":"talk"},
         {"id":1, "name":[
             "小精灵 :",
             "Elfin :"
-        ],"color":[138,176,96]}
+        ],"color":[138,176,96],
+        "sound":"spriteTalk"},
+        {"id":2, "name":[
+            "作者 :",
+            "Author :"
+        ],"color":[75,128,202],"sound":"authorTalk"}
     ],
     "data":[
         {
             
-            "talker":1,
+            "talker":0,
             "content":[
-                "保健品",
-                "Hello, Mr Santa"
+                "这是药片？",
+                "Are these pills?"
             ]
         },
         {
-            "talker":0,
+            "talker":1,
             "content":[
-                "没有孩子可以拒绝这个",
-                "Hello, little elf"
+                "这不是普通的药片",
+                "These are not ordinary pills."
             ]
         },        
         {
             
             "talker":1,
             "content":[
-                "哇哦",
-                "Hello, Mr Santa"
+                "这是聪明药",
+                "They're smart pills."
             ]
         },       
         {
             
-            "talker":1,
+            "talker":0,
             "content":[
-                "你说这话的时候...",
-                "Hello, Mr Santa"
+                "你是说吃了就能变聪明",
+                "You mean they can make you smarter?"
             ]
         },    
         {
             
             "talker":1,
             "content":[
-                "看上去就像个七旬老头子",
-                "Hello, Mr Santa"
+                "寄来的品牌方是这么说的",
+                "That's what the brand that sent them claims."
             ]
         },    
         {
             
             "talker":0,
             "content":[
-                "因为我就是个老头子！",
-                "Hello, Mr Santa"
+                "我深表怀疑",
+                "I'm very skeptical."
             ]
         }
 

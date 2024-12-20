@@ -30,6 +30,8 @@ export default class ChildMenu extends cc.Component {
     doneFrame:cc.Node = null
     // 文字框
     descFrame:cc.Node = null
+    // 滚动框
+    scrollFrame:cc.Node = null
     // 页数
     pageLabel:cc.Node = null
 
@@ -52,6 +54,7 @@ export default class ChildMenu extends cc.Component {
         // this.descFrame = this.node.getChildByName('ChildDesc')
         // 描述文字
         this.descFrame = cc.find('Canvas/UI/ChildMenu/childMenuFrame/ChildDesc/view/content/item')
+        this.scrollFrame = cc.find('Canvas/UI/ChildMenu/childMenuFrame/ChildDesc')
         this.pageLabel = this.node.getChildByName('PageLabel')
 
         this.prePageBtn = this.node.getChildByName('LeftBtn')
@@ -93,7 +96,8 @@ export default class ChildMenu extends cc.Component {
 
         // 修改描述
         this.descFrame.getComponent(cc.Label).string = child.description[window.globalData.lang]
-        
+        // 滚动框滚动到顶部
+        this.scrollFrame.getComponent(cc.ScrollView).scrollToTop(0.1)
         cc.resources.load([
             papper.url, ribbon.url, pattern.url, child.avator
         ],cc.SpriteFrame,(error:Error,assets:cc.SpriteFrame[])=>{

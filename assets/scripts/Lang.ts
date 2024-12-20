@@ -40,6 +40,13 @@ export default class lang extends cc.Component {
     @property
     en_font_size:number = 0
 
+    // 中文组件
+    @property(cc.Node)
+    ch_node:cc.Node = null
+
+    // 英文组件
+    @property(cc.Node)
+    en_node:cc.Node = null
     // 语言
     lang:number = 0
 
@@ -64,6 +71,9 @@ export default class lang extends cc.Component {
             // 文字
             label.string = [this.ch_label, this.en_label][this.lang]
             label.fontSize = [this.ch_font_size, this.en_font_size][this.lang]
+        }else if(this.ch_node && this.en_node){
+            this.ch_node.active = this.lang == 0
+            this.en_node.active = this.lang == 1
         }
     }
 

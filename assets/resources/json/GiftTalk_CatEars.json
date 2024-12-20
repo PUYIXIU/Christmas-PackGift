@@ -3,58 +3,56 @@
         {"id":0, "name":[
             "圣诞老人 :",
             "Santa :"
-        ],"color":[180,82,82]},
+        ],"color":[180,82,82],
+    "sound":"talk"},
         {"id":1, "name":[
             "小精灵 :",
             "Elfin :"
-        ],"color":[138,176,96]}
+        ],"color":[138,176,96],
+        "sound":"spriteTalk"},
+        {"id":2, "name":[
+            "作者 :",
+            "Author :"
+        ],"color":[75,128,202],"sound":"authorTalk"}
     ],
     "data":[
         {
             
-            "talker":1,
+            "talker":0,
             "content":[
-                "猫耳",
-                "Hello, Mr Santa"
+                "为什么会有猫耳这种礼物？",
+                "Why would there be a gift like cat ears?"
             ]
         },
         {
-            "talker":0,
+            "talker":1,
             "content":[
-                "没有孩子可以拒绝这个",
-                "Hello, little elf"
+                "万圣节party用剩的cos道具",
+                "Cosplay props left over from Halloween party."
             ]
         },        
         {
             
             "talker":1,
             "content":[
-                "哇哦",
-                "Hello, Mr Santa"
+                "觉得丢了挺可惜的",
+                "Would be a shame to just throw them away."
             ]
         },       
         {
             
             "talker":1,
             "content":[
-                "你说这话的时候...",
-                "Hello, Mr Santa"
-            ]
-        },    
-        {
-            
-            "talker":1,
-            "content":[
-                "看上去就像个七旬老头子",
-                "Hello, Mr Santa"
+                "所以就拿来充当礼物了",
+                "So I brought them along as a gift."
             ]
         },    
         {
             
             "talker":0,
             "content":[
-                "因为我就是个老头子！",
-                "Hello, Mr Santa"
+                "你是个坏精灵……",
+                "You're a bad elf..."
             ]
         }
 
