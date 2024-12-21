@@ -1468,6 +1468,8 @@
     "ch_font_size": 30,
     "en_label": "Continue: E",
     "en_font_size": 30,
+    "ch_node": null,
+    "en_node": null,
     "_id": "90sIbLp85CGrHdkTEAmiUt"
   },
   {
@@ -1586,6 +1588,8 @@
     "ch_font_size": 30,
     "en_label": "Jump: Space",
     "en_font_size": 30,
+    "ch_node": null,
+    "en_node": null,
     "_id": "8cABSD6zNAVaQCpm2zbK11"
   },
   {
@@ -2526,6 +2530,8 @@
     "ch_font_size": 20,
     "en_label": "◀︎ Back To Menu",
     "en_font_size": 20,
+    "ch_node": null,
+    "en_node": null,
     "_id": "1c2HV6QedDwJUY9K5aJBvh"
   },
   {
@@ -3948,6 +3954,8 @@
     "SoundController": {
       "__id__": 83
     },
+    "loader": null,
+    "loadingPage": null,
     "_id": "3fKwDhQ2VFOqu4cM6glpE9"
   },
   {

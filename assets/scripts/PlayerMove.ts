@@ -185,17 +185,42 @@ export default class PlayerMove extends cc.Component {
     if(window.game.isPause) return
     this.checkKeyboard()
     this.cameraFollow();
+    this.updateCamera()
+  }
+  cameraTarget = {
+    x:0,
+    y:0,
+  }
+  cameraStep = 8
+  updateCamera(){
+    if(window.game.camera.x !== this.cameraTarget.x){
+      window.game.camera.x += (this.cameraTarget.x - window.game.camera.x)/this.cameraStep
+    }
+    if(window.game.camera.y !== this.cameraTarget.y){
+      window.game.camera.y += (this.cameraTarget.y - window.game.camera.y)/this.cameraStep
+    }
   }
   // 相机跟随
   cameraFollow() {
-    window.game.camera.x = this.node.x;
+    // window.game.camera.x = this.node.x;
+    // let scrollHeight = 0
+    // if(this.node.y + scrollHeight <= 0){
+    //     // 角色低于屏幕的1/6高度，相机不移动
+    //     window.game.camera.y = 0
+    // }else{
+    //     window.game.camera.y = this.node.y + scrollHeight;
+    // }
+
+    this.cameraTarget.x = this.node.x
     let scrollHeight = 0
     if(this.node.y + scrollHeight <= 0){
         // 角色低于屏幕的1/6高度，相机不移动
-        window.game.camera.y = 0
+        this.cameraTarget.y = 0
     }else{
-        window.game.camera.y = this.node.y + scrollHeight;
+      this.cameraTarget.y = this.node.y + scrollHeight;
     }
+
+
   }
   // 检测与地面之间的碰撞
   onBeginContact(contact, self, other){

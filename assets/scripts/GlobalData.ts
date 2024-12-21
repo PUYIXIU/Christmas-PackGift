@@ -17,7 +17,7 @@ export default class GlobalData extends cc.Component {
 
     // 语言选择
     // 0=中文 1=英文
-    lang:number = 0
+    lang:number = 1
 
     // 音乐音量
     musicStrong:number = 0.5
@@ -46,6 +46,13 @@ export default class GlobalData extends cc.Component {
         cc.game.addPersistRootNode(this.node)
         if(this.SoundController){
             cc.game.addPersistRootNode(this.SoundController)
+        }
+
+        // 读取系统支持的语言
+        let language = window.navigator.language
+        // 支持的是中文
+        if(language == 'zh-CN'){
+            this.lang = 0
         }
     }
 

@@ -157,10 +157,11 @@ export default class Game extends cc.Component {
 
 
     // 打开新的菜单
-    openMenu(newMenu:cc.Node, closeOther:Boolean=false){
+    openMenu(newMenu:cc.Node, closeOther:Boolean=true, callback?){
+        if(this.isPause && closeOther) return
         if(!window.globalData.init) return
-        window.globalData.playSound('btnClick')
         this.Pause()
+        window.globalData.playSound('btnClick')
         if(this.activeMenu && closeOther){
             if(this.activeMenu.uuid == newMenu.uuid) return
             else {
@@ -170,7 +171,8 @@ export default class Game extends cc.Component {
         }
         this.activeMenu = newMenu
         this.activeMenu.active = true
-
+        // 回调
+        if(callback) callback()
     }
 
     // 关闭菜单
@@ -228,11 +230,24 @@ export default class Game extends cc.Component {
         // 初始化设置菜单数值
         // let comp = this.gameSettingMenu.children[0].getComponent(SettingMenu) as SettingMenu
         // comp.initMenuData()
-        this.openMenu(this.gameSettingMenu, false)
+        this.openMenu(this.gameSettingMenu, false, ()=>{
+            // 透明度调到最低
+            this.gameSettingMenu.opacity = 0
+            new Promise((resolve, reject)=>{
+                // 初始化
+                setTimeout(()=>{
+                    this.gameSettingMenu.getComponentInChildren(SettingMenu).initMenuData()
+                    resolve(null)
+                },200)
+            }).then(res=>{
+                this.gameSettingMenu.opacity = 255
+            })
+        })
 
-        setTimeout(()=>{
-            this.gameSettingMenu.getComponentInChildren(SettingMenu).initMenuData()
-        },200)
+        // 延迟2秒后
+        // setTimeout(()=>{
+        //     this.gameSettingMenu.getComponentInChildren(SettingMenu).initMenuData()
+        // },200)
         
     }
     // 关闭游戏设置
