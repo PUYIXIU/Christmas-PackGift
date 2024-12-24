@@ -12,7 +12,9 @@
 
 > *圣诞节前夕，**圣诞老人🎅**正在准备送给孩子们的礼盒，**收集散落在房间各处的材料打包成礼盒🎁**，找到**合适的送礼对象**，**按照他们的喜好**进行包装。*
 
-[itch.io完整版游戏地址](https://electric-duck.itch.io/name-your-gift)
+[👉itch.io完整版游戏地址](https://electric-duck.itch.io/name-your-gift)
+[👉游戏全流程展示](https://www.bilibili.com/video/BV1NskbYBEhK/?spm_id_from=333.999.0.0)
+
 
 - **游戏名称：** Name Your Gift
 - **中文名：** 求礼必应
@@ -45,6 +47,7 @@
 - 🎁阅读孩子们寄来的**信件**，找到**适合他们的礼物**，按照他们的**喜好**进行包装
 - 🛷将确认包装好的礼盒**丢到雪橇车中**
 
+![ch-rulesMenu.png](./screenshoot/ch-operateMenu.png)
 
 ![ch-rulesMenu.png](./screenshoot/ch-rulesMenu.png)
 
@@ -1045,12 +1048,10 @@ mat = {...initMaterial};
 
 游戏中使用到的都是开源社区创作者们分享的素材资源：
 -   **美术资源：**
-
     -   大部分来自于**WilliamBilliam**的开源美术资源包[festive-frenzy-sprite-sheet](https://williambilliam.itch.io/festive-frenzy-sprite-sheet)，并在此基础上进行了部分扩展。
     -   图标资源来自于itch.io上的创作者**PiiiXL的开源美术资源包**[1-bit-icons-part-2](https://piiixl.itch.io/1-bit-icons-part-2)
     -   操作说明的键盘图标资源来自于itch.io上的创作者**xPheRe的开源美术资源包**[pixel-keyboard-layout](https://xphere.itch.io/pixel-keyboard-layout)
     -   麋鹿动画来自于lapizwcg的开源美术资源包[the-minifolks-forest-animals-deer-doe-free-32x32-mod-by-lapizwcg](https://lapizwcg.itch.io/the-minifolks-forest-animals-deer-doe-free-32x32-mod-by-lapizwcg)
-
 -   **字体资源：** [Uranus-Pixel](https://github.com/scott0107000/Uranus-Pixel)
 
 -   **音效资源：** 音乐和音效来自于FreeSound上的创作者[rhodesmas](https://freesound.org/people/rhodesmas/)和创作者[AudioCoffee](https://freesound.org/people/AudioCoffee/)的开源分享。
