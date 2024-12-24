@@ -38,8 +38,8 @@
   },
   "win32": {
     "REMOTE_SERVER_ROOT": "",
-    "width": 1280,
-    "height": 720
+    "width": 960,
+    "height": 640
   },
   "android-instant": {
     "packageName": "org.cocos2d.demo",
@@ -51,5 +51,6 @@
     "recordPath": ""
   },
   "appBundle": false,
-  "agreements": {}
+  "agreements": {},
+  "includeAnySDK": false
 }

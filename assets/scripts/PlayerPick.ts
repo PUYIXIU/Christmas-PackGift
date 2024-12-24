@@ -111,12 +111,6 @@ export default class PlayerPick extends cc.Component {
 
     // 举起物品
     lift(){
-        // 刚体的状态变为静态
-        // this.pickingItem.getComponent(cc.RigidBody).type = cc.RigidBodyType.Animated
-        // this.pickingItem.getComponent(cc.RigidBody).gravityScale = 0
-        // this.pickingItem.getComponent(cc.PhysicsPolygonCollider).sensor = true
-        // this.pickingItem.getComponent(cc.PhysicsPolygonCollider).density = 0
-
         let pickRb = this.pickingItem.getComponent(cc.RigidBody)
 
         // 将线性速度、角速度控制为0
@@ -131,8 +125,7 @@ export default class PlayerPick extends cc.Component {
         this.pickingItem.x = this.node.x
         this.pickingItem.y = this.node.y + this.pickingItem.height
     }
-aa
-    // 碰撞盒检测aaaa
+    // 碰撞盒检测
     onBeginContact(contact, self, other){
         // 判断是否是可交互物品，是否是交互探测碰撞盒检测到的碰撞
         if(pickableList.includes(other.node.group) && self.tag == playerCollistionTags.pick){

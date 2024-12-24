@@ -66,16 +66,16 @@ export default class PlayerMove extends cc.Component {
     cc.systemEvent.on(
       cc.SystemEvent.EventType.KEY_DOWN,
       (event: cc.Event.EventKeyboard) => {
-        let now = new Date().getTime();
+        this.pressKeys[event.keyCode] = true;
+        // let now = new Date().getTime();
         // if (now - this.keyDownStamp > 2000) {
         //   this.keyDownStamp = now;
         //   this.pressKeys = [];
         // }
         // 处理组合键
-        this.pressKeys[event.keyCode] = true;
-        let  validPressKey = this.pressKeys.map((item,index)=>{
-            return [item,index]
-        }).filter(item=>item[0] == true)
+        // let  validPressKey = this.pressKeys.map((item,index)=>{
+        //     return [item,index]
+        // }).filter(item=>item[0] == true)
       }
     );
   }
@@ -202,15 +202,6 @@ export default class PlayerMove extends cc.Component {
   }
   // 相机跟随
   cameraFollow() {
-    // window.game.camera.x = this.node.x;
-    // let scrollHeight = 0
-    // if(this.node.y + scrollHeight <= 0){
-    //     // 角色低于屏幕的1/6高度，相机不移动
-    //     window.game.camera.y = 0
-    // }else{
-    //     window.game.camera.y = this.node.y + scrollHeight;
-    // }
-
     this.cameraTarget.x = this.node.x
     let scrollHeight = 0
     if(this.node.y + scrollHeight <= 0){
@@ -219,9 +210,9 @@ export default class PlayerMove extends cc.Component {
     }else{
       this.cameraTarget.y = this.node.y + scrollHeight;
     }
-
-
   }
+
+
   // 检测与地面之间的碰撞
   onBeginContact(contact, self, other){
   // 接触到地面，可以跳起
